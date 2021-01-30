@@ -48,9 +48,7 @@ public class FireballSpiralGenerator : Generator<FSGData>
         
         if (autoPlacement)
         {
-            Debug.Log(data.dir);
             data.dir = Quaternion.AngleAxis(angularStep, Vector3.up) * data.dir;
-            Debug.Log(data.dir);
             generateSpiral(data.pos, data.dir);
             
         }

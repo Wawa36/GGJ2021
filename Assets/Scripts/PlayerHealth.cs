@@ -55,12 +55,13 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle")
-            && !playerIsInvincible)
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
-            currentHealth--;
-            time = 0;
-            playerIsInvincible = true;
+            if (!playerIsInvincible) {
+                currentHealth--;
+                time = 0;
+                playerIsInvincible = true;
+            }
             Destroy(collision.gameObject);
         }
     }
