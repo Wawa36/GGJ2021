@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2e88dce8c37c9428c9a880cd564c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageTime: 10
+  stageTime: 1
+  time: 0
   stageChangers:
   - {fileID: 996778742}
   - {fileID: 1702577052}
@@ -252,6 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932b2c89e613a894e91b7578e8a84674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageMove: 0
 --- !u!1 &7573979322573616804
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932b2c89e613a894e91b7578e8a84674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageMove: 2
 --- !u!1 &7573979323221605134
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,3 +561,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932b2c89e613a894e91b7578e8a84674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageMove: 1
