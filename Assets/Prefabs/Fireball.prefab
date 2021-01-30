@@ -89,10 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3674b51f6b9af1a41812423bb8c2809e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: -0.5
-  maxX: 1.5
-  minY: -0.5
-  maxY: 1.5
+  minX: -2.5
+  maxX: 3.5
+  minY: -2.5
+  maxY: 3.5
 --- !u!1 &7831264515906553491
 GameObject:
   m_ObjectHideFlags: 0
