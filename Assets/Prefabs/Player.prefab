@@ -147,7 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashForce: 2000
-  recoverTime: 1
+  recoverTime: 0.55
+  deadZone: 0.05
+  dashDrag: 10
 --- !u!114 &3780395997450053398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +165,8 @@ MonoBehaviour:
   bottomOfPlayer: {fileID: 0}
   jumpGroundSensibility: 0.2
   jumpForce: 300
+  fallJumpMultiplier: 2.5
+  lowJumpMultiplier: 2
 --- !u!114 &6507323577148036143
 MonoBehaviour:
   m_ObjectHideFlags: 0

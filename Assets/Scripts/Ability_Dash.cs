@@ -7,23 +7,36 @@ public class Ability_Dash : MonoBehaviour
 
     [SerializeField] float dashForce;
     [SerializeField] float recoverTime;
+
+    [SerializeField] float deadZone = 0.05f;
+    [SerializeField] float dashDrag = 10f;
     bool playerCanDash;
     bool pressDashButton = false;
     float time;
     Rigidbody rigidbody;
+
+    Vector3 dashDirection;
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         playerCanDash = true;
         time = 0;
+        dashDirection = Vector3.forward;
     }
 
     void Update()
     {
         if (Input.GetButtonDown("Dash"))
         {
-            pressDashButton = true;
+            if(playerCanDash)
+                pressDashButton = true;
+        }
+
+        Vector3 newDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+        if (newDir.magnitude > deadZone) {
+            dashDirection = newDir.normalized;
         }
 
         Recover();
@@ -38,7 +51,6 @@ public class Ability_Dash : MonoBehaviour
     {
         if (pressDashButton && playerCanDash)
         {
-            Vector3 dashDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             rigidbody.AddForce(dashDirection * dashForce, ForceMode.Impulse);
             playerCanDash = false;
             time = 0;
@@ -52,6 +64,10 @@ public class Ability_Dash : MonoBehaviour
         if (time >= recoverTime)
         {
             playerCanDash = true;
+            rigidbody.drag = 0.0f;
+        }
+        else {
+            rigidbody.drag = dashDrag;
         }
     }
 }

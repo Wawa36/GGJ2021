@@ -13,6 +13,7 @@ public class Ability_Jump : MonoBehaviour
 
     [SerializeField]
     private float fallJumpMultiplier = 2.5f;
+    [SerializeField]
     private float lowJumpMultiplier = 2.0f;
 
     void Start()
