@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] bool moreHealthAbility;
+    [SerializeField] public bool moreHealthAbility;
     [SerializeField] int powerMaxHealth;
     [SerializeField] int startMaxHealth;
     [SerializeField] int  currentMaxHealth;
@@ -27,6 +27,13 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = currentMaxHealth;
         time = 0;
         playerIsInvincible = false;
+    }
+
+    public void HealthPowerUp() {
+        int inc = powerMaxHealth - currentMaxHealth;
+        currentHealth += inc;
+        currentMaxHealth = powerMaxHealth;
+        moreHealthAbility = true;
     }
 
     private void Update()
@@ -58,7 +65,14 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             if (!playerIsInvincible) {
-                currentHealth--;
+                Ability_Protection aProtection = GetComponent<Ability_Protection>();
+                if (aProtection.protect)
+                {
+                    aProtection.EndProtection();
+                }
+                else {
+                    currentHealth--;
+                }
                 time = 0;
                 playerIsInvincible = true;
             }

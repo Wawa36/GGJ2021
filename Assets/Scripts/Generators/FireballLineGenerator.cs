@@ -37,7 +37,7 @@ public class FireballLineGenerator : Generator<FLGData>
     {
     }
 
-    protected override void generate(FLGData data)
+    protected override void generate(FLGData data, int frame)
     {
         if (autoPlacement)
         {
@@ -48,7 +48,7 @@ public class FireballLineGenerator : Generator<FLGData>
         }
     }
 
-    protected override FLGData initGenerate()
+    protected override FLGData initGenerate(int index)
     {
         FLGData d;
         d.outerPoint = new Vector3(0, initHeight, outerDist);

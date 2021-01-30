@@ -45,7 +45,7 @@ public class FireballPackGenerator : Generator<FPGData>
     {
     }
 
-    protected override void generate(FPGData data)
+    protected override void generate(FPGData data, int frame)
     {
         if (autoPlacement)
         {
@@ -57,7 +57,7 @@ public class FireballPackGenerator : Generator<FPGData>
         }
     }
 
-    protected override FPGData initGenerate()
+    protected override FPGData initGenerate(int index)
     {
         FPGData d;
         d.pos = new Vector3(0, initHeight, outerDist);

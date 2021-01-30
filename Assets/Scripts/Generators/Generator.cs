@@ -28,7 +28,7 @@ public abstract class Generator<T> : MonoBehaviour
         spawnData.Clear();
         for (int i = 0; i < generatorCount; i++)
         {
-            spawnData.Add(initGenerate());
+            spawnData.Add(initGenerate(i));
         }
     }
 
@@ -42,7 +42,7 @@ public abstract class Generator<T> : MonoBehaviour
         genFrame ++;
         
         foreach (T sdata in spawnData) {
-            generate(sdata);
+            generate(sdata, genFrame);
         }
         if (genFrame >= resetGeneratorPeriod && resetGeneratorPeriod > 0)
         {
@@ -55,8 +55,8 @@ public abstract class Generator<T> : MonoBehaviour
        
     }
 
-    protected abstract void generate(T spawnData);
-    protected abstract T initGenerate();
+    protected abstract void generate(T spawnData, int frame);
+    protected abstract T initGenerate(int index);
     protected abstract void endGenerate(T spawnData);
 
     private void OnDisable()

@@ -37,12 +37,12 @@ public class FallingRockRandomGenerator : Generator<FRRGData>
     {
     }
 
-    protected override void generate(FRRGData data)
+    protected override void generate(FRRGData data, int frame)
     {
         generateObj(data.pos);
     }
 
-    protected override FRRGData initGenerate()
+    protected override FRRGData initGenerate(int index)
     {
         FRRGData d;
         d.pos = new Vector3(Random.Range(-outerDist, outerDist), 0, Random.Range(-outerDist,outerDist));

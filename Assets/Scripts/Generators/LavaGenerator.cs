@@ -43,7 +43,7 @@ public class LavaGenerator : Generator<LGData>
     {
     }
 
-    protected override void generate(LGData data)
+    protected override void generate(LGData data, int frame)
     {
         if (autoPlacement)
         {
@@ -55,7 +55,7 @@ public class LavaGenerator : Generator<LGData>
         }
     }
 
-    protected override LGData initGenerate()
+    protected override LGData initGenerate(int index)
     {
         LGData d;
         d.pos = new Vector3(0, initHeight, outerDist);

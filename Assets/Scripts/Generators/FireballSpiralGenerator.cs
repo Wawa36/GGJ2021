@@ -43,7 +43,7 @@ public class FireballSpiralGenerator : Generator<FSGData>
     {
     }
 
-    protected override void generate(FSGData data)
+    protected override void generate(FSGData data, int frame)
     {
         
         if (autoPlacement)
@@ -60,7 +60,7 @@ public class FireballSpiralGenerator : Generator<FSGData>
 
     }
 
-    protected override FSGData initGenerate()
+    protected override FSGData initGenerate(int index)
     {
         FSGData d = new FSGData();
         d.pos = new Vector3(0, initHeight, outerDist);

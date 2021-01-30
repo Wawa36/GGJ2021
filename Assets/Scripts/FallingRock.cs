@@ -34,8 +34,9 @@ public class FallingRock : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision other)
     {
-        die();
+        if(!other.gameObject.CompareTag("Obstacle"))
+            die();
     }
 }
