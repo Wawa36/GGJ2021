@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottomOfPlayer: {fileID: 0}
   jumpGroundSensibility: 0.1
-  jumpForce: 2
+  jumpForce: 5
 --- !u!114 &6507323577148036143
 MonoBehaviour:
   m_ObjectHideFlags: 0
