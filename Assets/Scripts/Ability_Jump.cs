@@ -9,10 +9,20 @@ public class Ability_Jump : MonoBehaviour
     [SerializeField] float jumpForce;
     Rigidbody rigidbody;
 
+    private bool isJump = false;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         bottomOfPlayer = this.gameObject.transform.Find("BottomOfPlayer");
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            isJump = true;
+        }
     }
 
     private void FixedUpdate()
@@ -22,9 +32,10 @@ public class Ability_Jump : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetButtonDown("Jump") && IsOnTheGround())
+        if (isJump && IsOnTheGround())
         {
             rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isJump = false;
         }
     }
 
