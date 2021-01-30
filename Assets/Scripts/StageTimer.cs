@@ -5,7 +5,8 @@ using UnityEngine;
 public class StageTimer : MonoBehaviour
 {
     [SerializeField] float stageTime;
-    [SerializeField] float time; 
+    [SerializeField] float time;
+    [SerializeField] GameObject directionFeedback;
 
     [SerializeField] List<StageChanger> stageChangers = new List<StageChanger>();
 
@@ -28,6 +29,7 @@ public class StageTimer : MonoBehaviour
             {
                 stageChanger.ChangeToTrigger();
             }
+            directionFeedback.SetActive(true);
         }
     }
 }
