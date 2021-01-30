@@ -7,6 +7,8 @@ public class StageChanger : MonoBehaviour
 {
     Collider collider;
 
+    [SerializeField] StageLink.StageMove stageMove;
+
     void Start()
     {
         collider = this.GetComponent<Collider>();
@@ -21,8 +23,7 @@ public class StageChanger : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(null);
-            //null -> function qui permet de recevoir la salle
+            StageLink.instance.changeScene(stageMove);
         }
     }
 }

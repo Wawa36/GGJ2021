@@ -23,4 +23,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestStageLinkScenes/testStage2-3.unity
     guid: 4cb15c379445d85429ed47e71201304e
+  - enabled: 1
+    path: Assets/Scenes/Stages/Scene-Floor1-Zone1.unity
+    guid: d401320caf4012e4b99f327da2382952
+  - enabled: 1
+    path: Assets/Scenes/Stages/Scene-Floor1-Zone2.unity
+    guid: 672a3dd618985ae46bacc418f71e6f27
+  - enabled: 1
+    path: Assets/Scenes/Stages/Scene-Floor1-Zone3.unity
+    guid: c076aa0ea0e53464cbb0feb1d0db2f53
+  - enabled: 1
+    path: Assets/Scenes/Stages/Scene-Floor2-Zone1.unity
+    guid: 0c40468d7a2fb7b4cb8ea44b709db2fd
+  - enabled: 1
+    path: Assets/Scenes/Stages/Scene-Floor2-Zone2.unity
+    guid: 6daba2c0d50a0324fa20b82f1b2f07c3
+  - enabled: 1
+    path: Assets/Scenes/Stages/Scene-Floor2-Zone3.unity
+    guid: e7b7850ef41f8a241a72f5eff4b17ed5
+  - enabled: 1
+    path: Assets/Scenes/Stages/Scene-Floor3-Zone1.unity
+    guid: 0e86a32a5451ee344bdc2281db8ac59b
+  - enabled: 1
+    path: Assets/Scenes/Stages/Scene-Floor3-Zone2.unity
+    guid: ced8b608c5760c64888e17c47f22bd3b
+  - enabled: 1
+    path: Assets/Scenes/Stages/Scene-Floor3-Zone3.unity
+    guid: 7c375fe7b1acc3042a98d7ee7be119d1
   m_configObjects: {}
