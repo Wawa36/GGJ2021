@@ -61,6 +61,7 @@ public class PlayerHealth : MonoBehaviour
             currentHealth--;
             time = 0;
             playerIsInvincible = true;
+            Destroy(collision.gameObject);
         }
     }
 }
