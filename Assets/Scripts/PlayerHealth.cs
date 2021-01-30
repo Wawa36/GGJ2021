@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] bool moreHealthAbility;
-    [SerializeField] float powerMaxHealth;
-    [SerializeField] float startMaxHealth;
-    [SerializeField] float currentMaxHealth;
-    [SerializeField] float currentHealth;
+    [SerializeField] int powerMaxHealth;
+    [SerializeField] int startMaxHealth;
+    [SerializeField] int  currentMaxHealth;
+    [SerializeField] public int currentHealth;
 
     [SerializeField] float invincibilityTime;
     float time;

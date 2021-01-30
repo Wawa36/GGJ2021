@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottomOfPlayer: {fileID: 0}
   jumpGroundSensibility: 0.2
-  jumpForce: 350
+  jumpForce: 300
 --- !u!114 &6507323577148036143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +205,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.33
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
