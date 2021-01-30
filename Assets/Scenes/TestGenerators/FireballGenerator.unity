@@ -166,9 +166,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableDelay: 1
   repeatingDelay: 0.4
+  generatorCount: 9
+  resetGeneratorPeriod: 0
   fireballSpeed: 10
   fireballPrefab: {fileID: 7831264515574792090, guid: b089a692b29144d4cadc6b25d2013c92,
     type: 3}
+  autoPlacement: 1
+  outerDist: 25
+  innerDist: 9.38
+  initHeight: 0.5
 --- !u!1 &524780037
 GameObject:
   m_ObjectHideFlags: 0
