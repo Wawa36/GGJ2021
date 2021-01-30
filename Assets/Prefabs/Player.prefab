@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6507323577148036136}
   - component: {fileID: 6507323577148036143}
+  - component: {fileID: 5223445510592642991}
   - component: {fileID: 6507323577148036142}
   - component: {fileID: 8696315061440248851}
   m_Layer: 9
@@ -47,6 +48,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+--- !u!114 &5223445510592642991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6507323577148036140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e8e9ddd53ecf54ebc247c6927bb265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moreHealthAbility: 0
+  powerMaxHealth: 5
+  startMaxHealth: 3
+  currentMaxHealth: 0
+  currentHealth: 0
+  invincibilityTime: 1
 --- !u!54 &6507323577148036142
 Rigidbody:
   m_ObjectHideFlags: 0
