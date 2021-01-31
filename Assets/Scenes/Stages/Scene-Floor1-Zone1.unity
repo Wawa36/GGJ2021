@@ -188,6 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 694982847}
   - component: {fileID: 694982846}
+  - component: {fileID: 694982848}
   m_Layer: 0
   m_Name: Generators
   m_TagString: Untagged
@@ -234,6 +235,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &694982848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694982845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e16e55f7ee1a94d9427b7c5701b4b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 7400000, guid: 8126fa2194e60cf48b09a01894d7b951, type: 2}
 --- !u!1 &829368433
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +629,7 @@ MonoBehaviour:
   resetGeneratorPeriod: 0
   speed: 0.37
   prefab: {fileID: 6297420204895076578, guid: 1b965670a0cdf374783eda51f85216cc, type: 3}
-  autoPlacement: 0
+  mode: 2
   outerDist: 12
   initHeight: 0.1
   endZ: -6
@@ -819,7 +833,7 @@ MonoBehaviour:
   resetGeneratorPeriod: 0
   speed: 0.37
   prefab: {fileID: 6297420204895076578, guid: 1b965670a0cdf374783eda51f85216cc, type: 3}
-  autoPlacement: 0
+  mode: 2
   outerDist: 12
   initHeight: 0.1
   endZ: -6
