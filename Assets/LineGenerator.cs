@@ -70,7 +70,8 @@ public class LineGenerator : Generator<LiGData>
                     (GameObject.FindGameObjectWithTag("Player").transform.position - data.pos).normalized);
                 break;
             case FallingRockCircleGenerator.FallingType.Manual:
-                generateLine(data.pos, this.transform.forward);
+                float t = frame / ((float)resetGeneratorPeriod-1);
+                generateLine((1 - t) * point1.position + t * point2.position, this.transform.forward);
                 break;
 
         }

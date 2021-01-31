@@ -66,7 +66,11 @@ public class FallingRockCircleGenerator : Generator<FRCGData>
                 d.pos = new Vector3(Random.Range(-outerDist, outerDist), 0, Random.Range(-outerDist, outerDist));
                 break;
             case FallingType.FollowPlayer:
-                d.pos = GameObject.FindGameObjectWithTag("Player").transform.position;
+                GameObject obj = GameObject.FindGameObjectWithTag("Player");
+                if (obj)
+                    d.pos = GameObject.FindGameObjectWithTag("Player").transform.position;
+                else
+                    d.pos = transform.position;
                 break;
             default:
                 d.pos = transform.position;
