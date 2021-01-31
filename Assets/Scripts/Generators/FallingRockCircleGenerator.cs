@@ -8,7 +8,11 @@ public struct FRCGData
 }
 public class FallingRockCircleGenerator : Generator<FRCGData>
 {
-
+    public enum FallingType {
+        Random,
+        FollowPlayer,
+        Manual
+    }
 
     [SerializeField]
     private GameObject prefab;
@@ -16,7 +20,7 @@ public class FallingRockCircleGenerator : Generator<FRCGData>
     private Transform baseEnvironment;
 
     [SerializeField]
-    private bool autoPlacement = true;
+    private FallingType fallingType;
 
     [SerializeField]
     private float outerDist = 10;
@@ -57,7 +61,17 @@ public class FallingRockCircleGenerator : Generator<FRCGData>
     protected override FRCGData initGenerate(int index)
     {
         FRCGData d;
-        d.pos = new Vector3(Random.Range(-outerDist, outerDist), 0, Random.Range(-outerDist, outerDist));
+        switch (fallingType) {
+            case FallingType.Random:
+                d.pos = new Vector3(Random.Range(-outerDist, outerDist), 0, Random.Range(-outerDist, outerDist));
+                break;
+            case FallingType.FollowPlayer:
+                d.pos = GameObject.FindGameObjectWithTag("Player").transform.position;
+                break;
+            default:
+                d.pos = transform.position;
+                break;
+        }
         return d;
     }
 
