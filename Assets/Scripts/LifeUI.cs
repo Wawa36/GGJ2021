@@ -13,13 +13,14 @@ public class LifeUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        health = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         for (int i = 0; i < hearts.Length; i++) {
             hearts[i].enabled = i + 1 <= health.currentHealth;
         }   

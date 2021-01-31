@@ -56,3 +56,18 @@ MonoBehaviour:
     - Scene-Floor3-Zone1
     - Scene-Floor3-Zone2
     - Scene-Floor3-Zone3
+  maxSkillsOnFloor: 020000000200000001000000
+  baseGameData: {fileID: 11400000, guid: f7b7f04487d787a43b549ac88b839f70, type: 2}
+  gameData: {fileID: 0}
+  minLatDistBetweenSkills: 1
+  center: {x: 0, y: 0, z: 0}
+  objectsInstanceOffset: 3
+  playerPrefab: {fileID: 6507323577148036140, guid: f0bb04f79db165c47bb1ee21a021396f,
+    type: 3}
+  lastSceneHealth: 3
+  lastMove: 3
+  spawnPoints:
+  - {x: 8, y: 1, z: 0}
+  - {x: -8, y: 1, z: 0}
+  - {x: 0, y: 1, z: -6}
+  - {x: 0, y: 1, z: -2}

@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     float time;
     bool playerIsInvincible;
 
+    bool died = false;
+
     private void Awake()
     {
         if(moreHealthAbility)
@@ -40,14 +42,25 @@ public class PlayerHealth : MonoBehaviour
     {
         ManageDeath();
         ManageInvincibility();
+
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0)) {
+            currentHealth--;
+        }
+#endif
     }
 
     void ManageDeath()
     {
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
-            //Do the death stuff
-            Debug.Log("I am dead guys!");
+            if (!died) {
+                died = true;
+                StageLink.instance.die();
+            }
+        }
+        else {
+            died = false;
         }
     }
 
