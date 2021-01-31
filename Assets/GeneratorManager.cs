@@ -35,7 +35,7 @@ public class GeneratorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (StageLink.instance.findStageObjects().Count == 0 && !beginGame) {
+        if (StageLink.instance.ready() && !beginGame) {
             beginGame = true;
             animator.SetTrigger("beginGame");
         }

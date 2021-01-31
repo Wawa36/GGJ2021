@@ -8,4 +8,5 @@ public class GameData : ScriptableObject
     public StageLink.StageObject[] skills;
     public StageLink.StagePosition[] spawns;
     public StageLink.StageObject diamond;
+
 }
