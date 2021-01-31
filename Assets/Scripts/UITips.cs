@@ -18,6 +18,8 @@ internal class UITips : MonoBehaviour
     }
     public void writeTip(string tip)
     {
+        text = GetComponent<Text>();
+        animator = GetComponent<Animator>();
         text.text = tip;
         animator.SetTrigger("beginTip");
         Invoke("endAnim", 5f);

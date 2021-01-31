@@ -331,7 +331,7 @@ public class StageLink : SingletonManager<StageLink>
     public Vector3 positionToVector(StagePosition position) {
         Vector3 vec = Vector3.up * (0.05f + 0.95f * (stageFloors.Length - position.y) / stageFloors.Length);
 
-        vec = Quaternion.AngleAxis(360.0f * position.x / stageFloors[position.y].stageNames.Length, Vector3.forward) * vec;
+        vec = Quaternion.AngleAxis(180f + 360.0f * position.x / stageFloors[position.y].stageNames.Length, Vector3.forward) * vec;
 
         return vec;
     }
