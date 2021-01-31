@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct LGData
+public struct RRGData
 {
     public Vector3 pos;
     public Vector3 dir;
 }
-public class LavaGenerator : Generator<LGData>
+public class RollingRockGenerator : Generator<RRGData>
 {
 
     [SerializeField]
@@ -18,11 +18,8 @@ public class LavaGenerator : Generator<LGData>
 
     private Transform baseEnvironment;
 
-
-    
-
     [SerializeField]
-    private FallingRockCircleGenerator.FallingType mode = FallingRockCircleGenerator.FallingType.Manual;
+    private bool autoPlacement = true;
 
     [SerializeField]
     private float outerDist = 12;
@@ -36,37 +33,33 @@ public class LavaGenerator : Generator<LGData>
     private float minEndX = -4f;
     private float maxEndX = 4f;
 
+    [SerializeField]
+    private FallingRockCircleGenerator.FallingType mode;
 
     public void Start()
     {
         baseEnvironment = GameObject.Find("Base Environment").transform;
     }
 
-    protected override void endGenerate(LGData data)
+    protected override void endGenerate(RRGData data)
     {
     }
 
-    protected override void generate(LGData data, int frame)
+    protected override void generate(RRGData data, int frame)
     {
-
-        switch (mode) {
-            case FallingRockCircleGenerator.FallingType.Random:
-                generateLine(data.pos, data.dir);
-                break;
-            case FallingRockCircleGenerator.FallingType.FollowPlayer:
-                generateLine(data.pos, 
-                    (GameObject.FindGameObjectWithTag("Player").transform.position - data.pos).normalized);
-                break;
-            case FallingRockCircleGenerator.FallingType.Manual:
-                generateLine(this.transform.position, this.transform.forward);
-                break;
-
+        if (autoPlacement)
+        {
+            generateLine(data.pos, data.dir);
+        }
+        else
+        {
+            generateLine(this.transform.position, this.transform.forward);
         }
     }
 
-    protected override LGData initGenerate(int index)
+    protected override RRGData initGenerate(int index)
     {
-        LGData d;
+        RRGData d;
         d.pos = new Vector3(0, initHeight, outerDist);
         d.pos = Quaternion.AngleAxis(Random.Range(-90.0f, 90.0f), Vector3.up) * d.pos;
         Vector3 dest = new Vector3(Random.Range(minEndX, maxEndX), initHeight, endZ);
@@ -76,8 +69,6 @@ public class LavaGenerator : Generator<LGData>
 
     private void generateLine(Vector3 pos, Vector3 dir)
     {
-        dir.y = 0;
-        dir = dir.normalized;
         GameObject obj = Instantiate(prefab);
         obj.transform.position = pos;
         obj.transform.rotation = Quaternion.LookRotation(dir, Vector3.up);

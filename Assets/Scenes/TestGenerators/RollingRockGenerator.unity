@@ -222,9 +222,9 @@ MonoBehaviour:
   resetGeneratorPeriod: 3
   speed: 20
   prefab: {fileID: 7019115316782686322, guid: f065322c031bee543aa4ba338bd486c8, type: 3}
-  autoPlacement: 1
+  mode: 1
   outerDist: 12
-  initHeight: 0.1
+  initHeight: 0.5
   endZ: -6
   minEndX: -4
 --- !u!1 &1369135365
