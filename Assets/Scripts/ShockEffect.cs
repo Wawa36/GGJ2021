@@ -7,7 +7,8 @@ public class ShockEffect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Obstacle")) {
+        Invincible inv;
+        if (other.gameObject.CompareTag("Obstacle") && !other.TryGetComponent<Invincible>(out inv)) {
             Destroy(other.gameObject);
         }
     }

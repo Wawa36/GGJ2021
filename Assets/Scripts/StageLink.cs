@@ -25,6 +25,7 @@ public class StageLink : SingletonManager<StageLink>
         [SerializeField]
         public StagePosition pos;
         public string name;
+        public string tip;
         public GameObject icon;
         public GameObject toInstantiate;
         public bool activated = false;
@@ -330,7 +331,7 @@ public class StageLink : SingletonManager<StageLink>
     public Vector3 positionToVector(StagePosition position) {
         Vector3 vec = Vector3.up * (0.05f + 0.95f * (stageFloors.Length - position.y) / stageFloors.Length);
 
-        vec = Quaternion.AngleAxis(360.0f * position.x / stageFloors[position.y].stageNames.Length, Vector3.forward) * vec;
+        vec = Quaternion.AngleAxis(180f + 360.0f * position.x / stageFloors[position.y].stageNames.Length, Vector3.forward) * vec;
 
         return vec;
     }
@@ -392,18 +393,42 @@ public class StageLink : SingletonManager<StageLink>
             switch (skill.name[0])
             {
                 case 'p':
+                    if (player.GetComponent<Ability_Protection>().enabled != skill.taken
+                        && skill.taken) {
+                        UISingleton.instance.GetComponentInChildren<UITips>().writeTip(skill.tip);
+                    }
                     player.GetComponent<Ability_Protection>().enabled = skill.taken;
                     break;
                 case 'j':
+                    if (player.GetComponent<Ability_Jump>().enabled != skill.taken
+                        && skill.taken)
+                    {
+                        UISingleton.instance.GetComponentInChildren<UITips>().writeTip(skill.tip);
+                    }
                     player.GetComponent<Ability_Jump>().enabled = skill.taken;
                     break;
                 case 'd':
+                    if (player.GetComponent<Ability_Dash>().enabled != skill.taken
+                        && skill.taken)
+                    {
+                        UISingleton.instance.GetComponentInChildren<UITips>().writeTip(skill.tip);
+                    }
                     player.GetComponent<Ability_Dash>().enabled = skill.taken;
                     break;
                 case 'm':
+                    if (player.GetComponent<Ability_MaxHealth>().enabled != skill.taken
+                        && skill.taken)
+                    {
+                        UISingleton.instance.GetComponentInChildren<UITips>().writeTip(skill.tip);
+                    }
                     player.GetComponent<Ability_MaxHealth>().enabled = skill.taken;
                     break;
                 case 's':
+                    if (player.GetComponent<Ability_Shock>().enabled != skill.taken
+                        && skill.taken)
+                    {
+                        UISingleton.instance.GetComponentInChildren<UITips>().writeTip(skill.tip);
+                    }
                     player.GetComponent<Ability_Shock>().enabled = skill.taken;
                     break;
                 default:
@@ -445,5 +470,10 @@ public class StageLink : SingletonManager<StageLink>
         updatePlayerSkills(player);
         player.GetComponent<PlayerHealth>().currentHealth = lastSceneHealth;
 
+
+    }
+
+    public bool ready() {
+        return findStageObjects().Count == 0 && UISingleton.instance.GetComponentInChildren<UITips>().isReady();
     }
 }
