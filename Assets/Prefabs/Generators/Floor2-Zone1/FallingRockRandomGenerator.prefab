@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &320734905581454300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 320734905581454302}
+  - component: {fileID: 320734905581454301}
+  m_Layer: 0
+  m_Name: FallingRockRandomGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &320734905581454302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320734905581454300}
+  m_LocalRotation: {x: -0, y: 0.36556002, z: -0, w: 0.9307878}
+  m_LocalPosition: {x: -2.34, y: 0, z: -2.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 42.884003, z: 0}
+--- !u!114 &320734905581454301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320734905581454300}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d9c54c1a1db9840a6db1709f808e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDelay: 0.36
+  repeatingDelay: 0.5
+  resetGenDelay: 2.5
+  generatorCount: 1
+  resetGeneratorPeriod: 4
+  prefab: {fileID: 6913697966637830894, guid: 56f0c8b52dfa0044c86452eb6815ecb5, type: 3}
+  autoPlacement: 1
+  outerDist: 6.41
+  maxScale: 2
+  minScale: 1
