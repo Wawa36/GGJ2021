@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct LGData
+public struct LiGData
 {
     public Vector3 pos;
     public Vector3 dir;
 }
-public class LavaGenerator : Generator<LGData>
+public class LineGenerator : Generator<LiGData>
 {
 
     [SerializeField]
@@ -19,7 +19,7 @@ public class LavaGenerator : Generator<LGData>
     private Transform baseEnvironment;
 
 
-    
+
 
     [SerializeField]
     private FallingRockCircleGenerator.FallingType mode = FallingRockCircleGenerator.FallingType.Manual;
@@ -42,38 +42,45 @@ public class LavaGenerator : Generator<LGData>
     [SerializeField]
     private float maxScale = 1f;
 
+    [SerializeField]
+    private Transform point1;
+
+    [SerializeField]
+    private Transform point2;
 
     public void Start()
     {
         baseEnvironment = GameObject.Find("Base Environment").transform;
     }
 
-    protected override void endGenerate(LGData data)
+    protected override void endGenerate(LiGData data)
     {
     }
 
-    protected override void generate(LGData data, int frame)
+    protected override void generate(LiGData data, int frame)
     {
 
-        switch (mode) {
+        switch (mode)
+        {
             case FallingRockCircleGenerator.FallingType.Random:
-                generateLine(data.pos, data.dir);
+                generateLine(data.pos, transform.forward);
                 break;
             case FallingRockCircleGenerator.FallingType.FollowPlayer:
-                generateLine(data.pos, 
+                generateLine(data.pos,
                     (GameObject.FindGameObjectWithTag("Player").transform.position - data.pos).normalized);
                 break;
             case FallingRockCircleGenerator.FallingType.Manual:
-                generateLine(this.transform.position, this.transform.forward);
+                generateLine(data.pos, this.transform.forward);
                 break;
 
         }
     }
 
-    protected override LGData initGenerate(int index)
+    protected override LiGData initGenerate(int index)
     {
-        LGData d;
-        d.pos = new Vector3(0, initHeight, outerDist);
+        LiGData d;
+        float t = Random.Range(0, 1f);
+        d.pos = (1 - t) * point1.position + t * point2.position;
         d.pos = Quaternion.AngleAxis(Random.Range(-90.0f, 90.0f), Vector3.up) * d.pos;
         Vector3 dest = new Vector3(Random.Range(minEndX, maxEndX), initHeight, endZ);
         d.dir = dest - d.pos;
