@@ -63,7 +63,11 @@ public class FireballPackGenerator : Generator<FPGData>
         d.pos = new Vector3(0, initHeight, outerDist);
         d.pos = Quaternion.AngleAxis(Random.Range(0.0f, 360.0f), Vector3.up) * d.pos;
 
-        Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        Vector3 playerPos = Vector3.up;
+        if(player)
+            playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
 
         d.dir = (playerPos - d.pos).normalized;
         return d;

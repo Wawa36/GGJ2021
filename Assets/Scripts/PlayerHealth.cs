@@ -70,6 +70,7 @@ public class PlayerHealth : MonoBehaviour
         if (time >= invincibilityTime)
         {
             playerIsInvincible = false;
+            gameObject.layer = LayerMask.NameToLayer("Player");
         }
     }
 
@@ -88,8 +89,14 @@ public class PlayerHealth : MonoBehaviour
                 }
                 time = 0;
                 playerIsInvincible = true;
+
+                gameObject.layer = LayerMask.NameToLayer("PlayerInvincible");
             }
-            Destroy(collision.gameObject);
+
+            Invincible inv;
+            if (!collision.gameObject.TryGetComponent<Invincible>(out inv)) {
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
