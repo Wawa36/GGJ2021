@@ -55,7 +55,7 @@ public class StageLink : SingletonManager<StageLink>
     List<int> characters;
 
 
-    private int currentCharacter;
+    private int currentCharacter = -1;
 
     [SerializeField]
     private int minLatDistBetweenSkills = 1;
@@ -79,6 +79,9 @@ public class StageLink : SingletonManager<StageLink>
     [SerializeField]
     private Vector3[] spawnPoints;
 
+
+    private bool characterActivation = true;
+
     public void Start()
     {
         gameData = Instantiate(baseGameData);
@@ -91,6 +94,7 @@ public class StageLink : SingletonManager<StageLink>
 
         characters = new List<int>();
         fillCharacters();
+        nextCharacter();
 
        
         createObjects();
@@ -206,7 +210,8 @@ public class StageLink : SingletonManager<StageLink>
         for (int i = 0; i < gameData.skills.Length; i++)
         {
 
-            if ((maxSkillsOnFloor[oldFloor] == 0 || gameData.skills[i].name != obj.name) && gameData.skills[i].pos.y == oldFloor)
+            if ((maxSkillsOnFloor[oldFloor] == 0 || gameData.skills[i].name != obj.name) && gameData.skills[i].pos.y == oldFloor
+                && gameData.skills[i].activated && !gameData.skills[i].taken)
             {
                 gameData.skills[i].pos.y = newFloor;
                 movedSkill = gameData.skills[i];
@@ -224,7 +229,8 @@ public class StageLink : SingletonManager<StageLink>
 
                 if (gameData.skills[i].pos.y == movedSkill.pos.y
                     && gameData.skills[i].name != movedSkill.name
-                    && Mathf.Abs(dist) < minLatDistBetweenSkills)
+                    && Mathf.Abs(dist) < minLatDistBetweenSkills
+                    && gameData.skills[i].activated && !gameData.skills[i].taken)
                 {
                     movedSkill.pos.x = gameData.skills[i].pos.x - minLatDistBetweenSkills * (dist > 0 ? 1:-1);
                 }
@@ -240,9 +246,13 @@ public class StageLink : SingletonManager<StageLink>
         int precCharacter = currentCharacter;
         if (characters.Count == 0) {
             fillCharacters();
+            characterActivation = false;
         }
 
-        int index = UnityEngine.Random.Range(0, characters.Count);
+        int index = 0;
+        
+        if(!characterActivation)
+            UnityEngine.Random.Range(0, characters.Count);
 
         int charac = characters[index];
         characters.RemoveAt(index);
@@ -250,15 +260,29 @@ public class StageLink : SingletonManager<StageLink>
 
         currentCharacter = charac;
 
-        gameData.skills[precCharacter].activated = true;
-        gameData.skills[precCharacter].taken = false;
-        gameData.skills[currentCharacter].pos = findStagePosition();
-
-        gameData.diamond.pos = gameData.skills[precCharacter].pos;
+        
+        if (precCharacter >= 0) {
+            gameData.skills[precCharacter].pos = findStagePosition();
+            for (int s = 0; s < gameData.skills.Length; s++)
+            {
+                if (gameData.skills[s].taken)
+                {
+                    gameData.skills[s].activated = true;
+                    gameData.skills[s].taken = false;
+                }
+            }
+            gameData.diamond.pos = gameData.skills[precCharacter].pos;
+            
+        }
+        gameData.skills[currentCharacter].pos = gameData.spawns[charac];
         gameData.diamond.taken = false;
+        gameData.diamond.activated = true;
 
         gameData.skills[currentCharacter].activated = false;
         gameData.skills[currentCharacter].taken = true;
+
+        if(precCharacter >= 0)
+            reorganizeSkills(gameData.skills[precCharacter]);
         
         return gameData.skills[currentCharacter];
     }
@@ -346,7 +370,7 @@ public class StageLink : SingletonManager<StageLink>
 
                 off = Quaternion.AngleAxis(i * 360f / objects.Count, Vector3.up) * off;
 
-                GameObject prefab = Instantiate(objects[0].toInstantiate);
+                GameObject prefab = Instantiate(objects[i].toInstantiate);
 
                 off.y += prefab.transform.position.y;
                 prefab.transform.position = center + off;
@@ -358,6 +382,7 @@ public class StageLink : SingletonManager<StageLink>
         }
 
         createPlayer();
+        UISingleton.instance.GetComponentInChildren<MinimapScript>().UpdateMinimap();
     }
 
     public void updatePlayerSkills(GameObject player) {
@@ -397,6 +422,16 @@ public class StageLink : SingletonManager<StageLink>
         }
         UISingleton.instance.GetComponentInChildren<MinimapScript>().UpdateMinimap();
         updatePlayerSkills(GameObject.FindGameObjectWithTag("Player"));
+    }
+
+    public void die() {
+        if (gameData.diamond.taken) {
+            nextCharacter();
+        }
+        lastSceneHealth = 3;
+        lastMove = StageMove.NONE;
+        StagePosition pos = gameData.spawns[currentCharacter];
+        loadScene(stageFloors[pos.y].stageNames[pos.x]);
     }
 
     public void createPlayer() {
