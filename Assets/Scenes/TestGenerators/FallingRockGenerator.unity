@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &205080396
 Transform:
   m_ObjectHideFlags: 0
@@ -165,10 +165,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableDelay: 0.36
-  repeatingDelay: 14.21
-  resetGenDelay: 0.51
+  repeatingDelay: 0.5
+  resetGenDelay: 2.5
   generatorCount: 1
-  resetGeneratorPeriod: 1
+  resetGeneratorPeriod: 4
   prefab: {fileID: 6913697966637830894, guid: 56f0c8b52dfa0044c86452eb6815ecb5, type: 3}
   autoPlacement: 1
   outerDist: 6.41
@@ -219,11 +219,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableDelay: 1
   repeatingDelay: 0.27
-  resetGenDelay: 2.93
-  generatorCount: 3
+  resetGenDelay: 0.8
+  generatorCount: 1
   resetGeneratorPeriod: 2
   prefab: {fileID: 6913697966637830894, guid: 56f0c8b52dfa0044c86452eb6815ecb5, type: 3}
-  autoPlacement: 1
+  fallingType: 2
   outerDist: 5
   maxScale: 2
   minScale: 1
