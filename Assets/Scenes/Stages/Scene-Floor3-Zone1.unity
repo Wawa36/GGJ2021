@@ -342,11 +342,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableDelay: 0
-  repeatingDelay: 10
+  repeatingDelay: 3
   resetGenDelay: 0
   generatorCount: 10
   resetGeneratorPeriod: 0
-  speed: 1
+  speed: 2
   prefab: {fileID: 6297420204895076578, guid: 1b965670a0cdf374783eda51f85216cc, type: 3}
   mode: 1
   outerDist: 12
