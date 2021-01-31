@@ -46,7 +46,7 @@ MonoBehaviour:
   stageFloors:
   - stageNames:
     - Scene-Floor1-Zone1
-    - Scene-Floor1-Zone2
+    - Scene-Floor1-Zone5
     - Scene-Floor1-Zone3
   - stageNames:
     - Scene-Floor2-Zone1
