@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2e88dce8c37c9428c9a880cd564c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageTime: 5
+  stageTime: 60
   time: 0
   directionFeedback: {fileID: 4370390171409782518}
   stageChangers:

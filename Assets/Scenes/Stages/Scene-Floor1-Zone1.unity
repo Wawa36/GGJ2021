@@ -121,6 +121,177 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &37910086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 37910087}
+  - component: {fileID: 37910088}
+  m_Layer: 0
+  m_Name: FireballPackGeneratorR (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &37910087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37910086}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -5.5, y: 1, z: 7.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 694982847}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &37910088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37910086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76380bcf3811ef94e871e1f364528f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDelay: 0
+  repeatingDelay: 0.4
+  resetGenDelay: 20
+  generatorCount: 1
+  resetGeneratorPeriod: 3
+  fireballSpeed: 8
+  fireballPrefab: {fileID: 7831264515574792090, guid: b089a692b29144d4cadc6b25d2013c92,
+    type: 3}
+  autoPlacement: 0
+  outerDist: 11
+  initHeight: 0.5
+  fireballsCount: 3
+  frontOffset: 1.5
+  lateralOffset: 1.5
+--- !u!1 &300382802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300382803}
+  - component: {fileID: 300382804}
+  m_Layer: 0
+  m_Name: FireballPackGeneratorR 2 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &300382803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300382802}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 6.5, y: 1, z: 7.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 694982847}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &300382804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300382802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76380bcf3811ef94e871e1f364528f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDelay: 0
+  repeatingDelay: 0.4
+  resetGenDelay: 20
+  generatorCount: 1
+  resetGeneratorPeriod: 3
+  fireballSpeed: 8
+  fireballPrefab: {fileID: 7831264515574792090, guid: b089a692b29144d4cadc6b25d2013c92,
+    type: 3}
+  autoPlacement: 0
+  outerDist: 11
+  initHeight: 0.5
+  fireballsCount: 3
+  frontOffset: 1.5
+  lateralOffset: 1.5
+--- !u!1 &329460953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 329460954}
+  - component: {fileID: 329460955}
+  m_Layer: 0
+  m_Name: FireballPackGenerator 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &329460954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329460953}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 6, y: 1, z: 7.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 694982847}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &329460955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329460953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76380bcf3811ef94e871e1f364528f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDelay: 0
+  repeatingDelay: 0.4
+  resetGenDelay: 20
+  generatorCount: 1
+  resetGeneratorPeriod: 5
+  fireballSpeed: 8
+  fireballPrefab: {fileID: 7831264515574792090, guid: b089a692b29144d4cadc6b25d2013c92,
+    type: 3}
+  autoPlacement: 0
+  outerDist: 11
+  initHeight: 0.5
+  fireballsCount: 3
+  frontOffset: 1.5
+  lateralOffset: 1.5
 --- !u!1 &694982845
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,9 +341,185 @@ Transform:
   m_Children:
   - {fileID: 1284275621}
   - {fileID: 2107507014}
+  - {fileID: 1235956421}
+  - {fileID: 1720627659}
+  - {fileID: 329460954}
+  - {fileID: 829368434}
+  - {fileID: 37910087}
+  - {fileID: 300382803}
+  - {fileID: 1115346954}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &829368433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 829368434}
+  - component: {fileID: 829368435}
+  m_Layer: 0
+  m_Name: FireballPackGenerator 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &829368434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829368433}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 7.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 694982847}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &829368435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829368433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76380bcf3811ef94e871e1f364528f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDelay: 0
+  repeatingDelay: 0.4
+  resetGenDelay: 20
+  generatorCount: 1
+  resetGeneratorPeriod: 5
+  fireballSpeed: 8
+  fireballPrefab: {fileID: 7831264515574792090, guid: b089a692b29144d4cadc6b25d2013c92,
+    type: 3}
+  autoPlacement: 0
+  outerDist: 11
+  initHeight: 0.5
+  fireballsCount: 3
+  frontOffset: 1.5
+  lateralOffset: 1.5
+--- !u!1 &1115346953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1115346954}
+  - component: {fileID: 1115346955}
+  m_Layer: 0
+  m_Name: FireballPackGeneratorR 3 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1115346954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115346953}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.5, y: 1, z: 7.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 694982847}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1115346955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115346953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76380bcf3811ef94e871e1f364528f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDelay: 0
+  repeatingDelay: 0.4
+  resetGenDelay: 20
+  generatorCount: 1
+  resetGeneratorPeriod: 3
+  fireballSpeed: 8
+  fireballPrefab: {fileID: 7831264515574792090, guid: b089a692b29144d4cadc6b25d2013c92,
+    type: 3}
+  autoPlacement: 0
+  outerDist: 11
+  initHeight: 0.5
+  fireballsCount: 3
+  frontOffset: 1.5
+  lateralOffset: 1.5
+--- !u!1 &1235956420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1235956421}
+  - component: {fileID: 1235956422}
+  m_Layer: 0
+  m_Name: LineFireballGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1235956421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235956420}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -7.19, y: 1, z: 9.96}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 694982847}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1235956422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235956420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862937008cd01494bb9ceafb90c4e1a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDelay: 1
+  repeatingDelay: 0.4
+  resetGenDelay: 20
+  generatorCount: 1
+  resetGeneratorPeriod: 5
+  fireballSpeed: 10
+  fireballPrefab: {fileID: 7831264515574792090, guid: b089a692b29144d4cadc6b25d2013c92,
+    type: 3}
+  autoPlacement: 0
+  outerDist: 25
+  innerDist: 9.38
+  initHeight: 0.5
 --- !u!1 &1284275620
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,10 +533,10 @@ GameObject:
   m_Layer: 0
   m_Name: LavaGenerator
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1284275621
 Transform:
   m_ObjectHideFlags: 0
@@ -198,7 +545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284275620}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000002533197}
-  m_LocalPosition: {x: -3.38, y: 0.1, z: 8.11}
+  m_LocalPosition: {x: -3, y: 0.1, z: 7.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 694982847}
@@ -221,7 +568,7 @@ MonoBehaviour:
   resetGenDelay: 0
   generatorCount: 2
   resetGeneratorPeriod: 0
-  speed: 0.6
+  speed: 0.37
   prefab: {fileID: 6297420204895076578, guid: 1b965670a0cdf374783eda51f85216cc, type: 3}
   autoPlacement: 0
   outerDist: 12
@@ -320,6 +667,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1720627658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1720627659}
+  - component: {fileID: 1720627660}
+  m_Layer: 0
+  m_Name: FireballPackGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1720627659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720627658}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -6, y: 1, z: 7.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 694982847}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1720627660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720627658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76380bcf3811ef94e871e1f364528f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDelay: 0
+  repeatingDelay: 0.4
+  resetGenDelay: 20
+  generatorCount: 1
+  resetGeneratorPeriod: 5
+  fireballSpeed: 8
+  fireballPrefab: {fileID: 7831264515574792090, guid: b089a692b29144d4cadc6b25d2013c92,
+    type: 3}
+  autoPlacement: 0
+  outerDist: 11
+  initHeight: 0.5
+  fireballsCount: 3
+  frontOffset: 1.5
+  lateralOffset: 1.5
 --- !u!1 &2107507013
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,10 +737,10 @@ GameObject:
   m_Layer: 0
   m_Name: LavaGenerator 2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2107507014
 Transform:
   m_ObjectHideFlags: 0
@@ -345,7 +749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107507013}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000002533197}
-  m_LocalPosition: {x: 3.24, y: 0.1, z: 9.41}
+  m_LocalPosition: {x: 3, y: 0.1, z: 8.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 694982847}
@@ -368,7 +772,7 @@ MonoBehaviour:
   resetGenDelay: 0
   generatorCount: 2
   resetGeneratorPeriod: 0
-  speed: 0.6
+  speed: 0.37
   prefab: {fileID: 6297420204895076578, guid: 1b965670a0cdf374783eda51f85216cc, type: 3}
   autoPlacement: 0
   outerDist: 12
@@ -525,11 +929,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4370390171409782518, guid: b7ddb2dd929939c43b0d0109ee78149f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7573979321950173910, guid: b7ddb2dd929939c43b0d0109ee78149f,
         type: 3}
       propertyPath: m_RootOrder
@@ -589,11 +988,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Base Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 9109692732860696960, guid: b7ddb2dd929939c43b0d0109ee78149f,
-        type: 3}
-      propertyPath: stageTime
-      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7ddb2dd929939c43b0d0109ee78149f, type: 3}
