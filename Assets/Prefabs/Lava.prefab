@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6297420204895076581}
   - component: {fileID: 6755047945767811037}
   - component: {fileID: 4321702586868720550}
+  - component: {fileID: 545789245255755496}
   m_Layer: 10
   m_Name: Lava
   m_TagString: Obstacle
@@ -93,6 +94,18 @@ MonoBehaviour:
   maxX: 3.5
   minY: -2.5
   maxY: 3.5
+--- !u!114 &545789245255755496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6297420204895076578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97c869cb20b32f4b83fab4ef4c3e9ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6297420205235386859
 GameObject:
   m_ObjectHideFlags: 0

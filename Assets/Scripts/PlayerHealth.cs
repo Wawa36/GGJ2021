@@ -89,7 +89,11 @@ public class PlayerHealth : MonoBehaviour
                 time = 0;
                 playerIsInvincible = true;
             }
-            Destroy(collision.gameObject);
+
+            Invincible inv;
+            if (!collision.gameObject.TryGetComponent<Invincible>(out inv)) {
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
