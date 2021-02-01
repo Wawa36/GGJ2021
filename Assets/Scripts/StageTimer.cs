@@ -28,12 +28,21 @@ public class StageTimer : MonoBehaviour
     {
         if(time >= stageTime)
         {
-            foreach(StageChanger stageChanger in stageChangers)
+            if (StageLink.instance.findStagePosition().y == 2)
             {
-                stageChanger.ChangeToTrigger();
+                if (StageLink.instance.gameData.diamond.taken)
+                    UISingleton.instance.GetComponentInChildren<UITips>().writeTip("You dropped the ring: yo won !");
+                else
+                    UISingleton.instance.GetComponentInChildren<UITips>().writeTip("Comeback with the ring to save the world !");
             }
-            directionFeedback.SetActive(true);
-
+            else
+            {
+                foreach (StageChanger stageChanger in stageChangers)
+                {
+                    stageChanger.ChangeToTrigger();
+                }
+                directionFeedback.SetActive(true);
+            }
             if(GameObject.Find("Generators"))
                 GameObject.Find("Generators").SetActive(false);
         }

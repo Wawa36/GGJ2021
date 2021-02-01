@@ -49,7 +49,7 @@ public class StageLink : SingletonManager<StageLink>
     private GameData baseGameData;
 
     [SerializeField]
-    private GameData gameData;
+    public GameData gameData;
 
     List<StageObject> stageObjects;
 

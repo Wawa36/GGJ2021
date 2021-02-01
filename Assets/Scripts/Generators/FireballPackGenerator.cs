@@ -70,6 +70,8 @@ public class FireballPackGenerator : Generator<FPGData>
             playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
 
         d.dir = (playerPos - d.pos).normalized;
+        d.dir.y = 0;
+        d.dir = d.dir.normalized;
         return d;
     }
         
