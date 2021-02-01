@@ -17,7 +17,7 @@ MonoBehaviour:
       x: 0
       y: 0
     name: jump
-    tip: Press A to Jump
+    tip: Press A or [Space] to Jump
     icon: {fileID: 4406353865540163498, guid: 696eca129233a22498f726af296a9d50, type: 3}
     toInstantiate: {fileID: 845457580417638286, guid: aa02e16aafda094479279d1263ca782d,
       type: 3}
@@ -27,7 +27,7 @@ MonoBehaviour:
       x: 1
       y: 0
     name: protect
-    tip: Press B to Protect
+    tip: Press B or [C] to Protect
     icon: {fileID: 3246625570226534389, guid: 0b28b9465c52465459c13ec4e6d0df11, type: 3}
     toInstantiate: {fileID: 5585834577634241911, guid: 474196dbe408f5e438a598f955719106,
       type: 3}
@@ -37,7 +37,7 @@ MonoBehaviour:
       x: 1
       y: 2
     name: shock
-    tip: Hold X to charge a shockwave
+    tip: Hold X or [X] to charge a shockwave
     icon: {fileID: 4120823955017119068, guid: 51e3821989d58484caa24c46da1de94f, type: 3}
     toInstantiate: {fileID: 146175646752792992, guid: 338b2172468cec243adc4e2eec11dd99,
       type: 3}
@@ -47,7 +47,7 @@ MonoBehaviour:
       x: 0
       y: 1
     name: dash
-    tip: Press RB to Dash
+    tip: Press RB or [V] to Dash
     icon: {fileID: 1376928258869290954, guid: cc8f6de2a37d1e942883a81f30287f79, type: 3}
     toInstantiate: {fileID: 5019334479685043651, guid: 124cbf019877040439fc24d84cadd162,
       type: 3}
