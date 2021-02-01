@@ -56,7 +56,7 @@ MonoBehaviour:
     - Scene-Floor3-Zone1
     - Scene-Floor3-Zone5
     - Scene-Floor3-Zone3
-  maxSkillsOnFloor: 020000000200000001000000
+  maxSkillsOnFloor: 020000000200000000000000
   baseGameData: {fileID: 11400000, guid: f7b7f04487d787a43b549ac88b839f70, type: 2}
   gameData: {fileID: 0}
   minLatDistBetweenSkills: 1

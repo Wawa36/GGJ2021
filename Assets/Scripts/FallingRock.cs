@@ -11,25 +11,32 @@ public class FallingRock : MonoBehaviour
 
     [SerializeField]
     private float timeUntilDown = 5;
+
+    private float time = 0;
     // Start is called before the first frame update
     void Start()
     {
         float newY = minY + 1.0f / 2.0f * timeUntilDown * timeUntilDown * Physics.gravity.magnitude;
 
-        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
 
         GetComponentInChildren<ScaledShadow>().maxY = newY;
+        time = 0;
+        GetComponentInChildren<ScaledShadow>().y = newY;
     }
 
     void die() {
         if (!destroyed)
         {
             destroyed = true;
-            Destroy(gameObject);
+            GetComponent<Animator>().SetTrigger("fall");
         }
     }
     void Update() {
-        if (transform.position.y < minY) {
+
+        time += Time.deltaTime;
+        float newY = minY + 1.0f / 2.0f * (timeUntilDown - time) * (timeUntilDown - time) * Physics.gravity.magnitude;
+        GetComponentInChildren<ScaledShadow>().y = newY;
+        if (time > timeUntilDown) {
             die();
         }
     }

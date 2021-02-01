@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageTimer : MonoBehaviour
 {
@@ -17,7 +18,9 @@ public class StageTimer : MonoBehaviour
 
     void Update()
     {
-        time += Time.deltaTime;
+        if(StageLink.instance.ready())
+            time += Time.deltaTime;
+        UISingleton.instance.GetComponentInChildren < Slider > ().value = (stageTime - time) / stageTime;
         TimerIsOver();
     }
 
@@ -30,6 +33,9 @@ public class StageTimer : MonoBehaviour
                 stageChanger.ChangeToTrigger();
             }
             directionFeedback.SetActive(true);
+
+            if(GameObject.Find("Generators"))
+                GameObject.Find("Generators").SetActive(false);
         }
     }
 }

@@ -16,6 +16,8 @@ public class ScaledShadow : MonoBehaviour
 
     [SerializeField]
     private Transform obj;
+
+    public float y;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,7 @@ public class ScaledShadow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float diff = Mathf.Max(obj.position.y - baseY,0);
+        float diff = Mathf.Max(y - baseY,0);
         float t = 1 - diff / (maxY - baseY);
         t = minScale * (1f - t) + t * maxScale;
 
