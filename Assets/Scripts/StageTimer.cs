@@ -11,9 +11,12 @@ public class StageTimer : MonoBehaviour
 
     [SerializeField] List<StageChanger> stageChangers = new List<StageChanger>();
 
+    bool win;
+
     void Start()
     {
         time = 0;
+        win = false;
     }
 
     void Update()
@@ -26,8 +29,9 @@ public class StageTimer : MonoBehaviour
 
     void TimerIsOver()
     {
-        if(time >= stageTime)
+        if(time >= stageTime && !win)
         {
+            win = true;
             if (StageLink.instance.findStagePosition().y == 2)
             {
                 if (StageLink.instance.gameData.diamond.taken)

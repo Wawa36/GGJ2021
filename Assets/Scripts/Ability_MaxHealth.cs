@@ -15,6 +15,9 @@ public class Ability_MaxHealth : MonoBehaviour
     void Update()
     {
         if (!ph.moreHealthAbility)
-            ph.HealthPowerUp();   
+        {
+            Debug.Log("adding health");
+            ph.HealthPowerUp();
+        }
     }
 }

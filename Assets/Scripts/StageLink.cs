@@ -83,6 +83,8 @@ public class StageLink : SingletonManager<StageLink>
 
     private bool characterActivation = true;
 
+    private bool roomMove = false;
+
     public void Start()
     {
         gameData = Instantiate(baseGameData);
@@ -253,7 +255,7 @@ public class StageLink : SingletonManager<StageLink>
         int index = 0;
         
         if(!characterActivation)
-            UnityEngine.Random.Range(0, characters.Count);
+            index = UnityEngine.Random.Range(0, characters.Count);
 
         int charac = characters[index];
         characters.RemoveAt(index);
@@ -271,8 +273,10 @@ public class StageLink : SingletonManager<StageLink>
                     gameData.skills[s].activated = true;
                     gameData.skills[s].taken = false;
                 }
+                if (!characterActivation)
+                    gameData.skills[s].activated = true;
             }
-            gameData.diamond.pos = gameData.skills[precCharacter].pos;
+            gameData.diamond.pos = findStagePosition();
             
         }
         gameData.skills[currentCharacter].pos = gameData.spawns[charac];
@@ -280,6 +284,8 @@ public class StageLink : SingletonManager<StageLink>
         gameData.diamond.activated = true;
 
         
+
+        gameData.skills[currentCharacter].activated = false;
 
         if (precCharacter >= 0)
         {
@@ -340,6 +346,7 @@ public class StageLink : SingletonManager<StageLink>
     public void changeScene(StageMove move) {
         lastSceneHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().currentHealth;
         lastMove = move;
+        roomMove = true;
         string scene = getMoveScene(move);
         loadScene(scene);
     }
@@ -394,42 +401,18 @@ public class StageLink : SingletonManager<StageLink>
             switch (skill.name[0])
             {
                 case 'p':
-                    if (player.GetComponent<Ability_Protection>().enabled != skill.taken
-                        && skill.taken) {
-                        UISingleton.instance.GetComponentInChildren<UITips>().writeTip(skill.tip);
-                    }
                     player.GetComponent<Ability_Protection>().enabled = skill.taken;
                     break;
                 case 'j':
-                    if (player.GetComponent<Ability_Jump>().enabled != skill.taken
-                        && skill.taken)
-                    {
-                        UISingleton.instance.GetComponentInChildren<UITips>().writeTip(skill.tip);
-                    }
                     player.GetComponent<Ability_Jump>().enabled = skill.taken;
                     break;
                 case 'd':
-                    if (player.GetComponent<Ability_Dash>().enabled != skill.taken
-                        && skill.taken)
-                    {
-                        UISingleton.instance.GetComponentInChildren<UITips>().writeTip(skill.tip);
-                    }
                     player.GetComponent<Ability_Dash>().enabled = skill.taken;
                     break;
                 case 'm':
-                    if (player.GetComponent<Ability_MaxHealth>().enabled != skill.taken
-                        && skill.taken)
-                    {
-                        UISingleton.instance.GetComponentInChildren<UITips>().writeTip(skill.tip);
-                    }
                     player.GetComponent<Ability_MaxHealth>().enabled = skill.taken;
                     break;
                 case 's':
-                    if (player.GetComponent<Ability_Shock>().enabled != skill.taken
-                        && skill.taken)
-                    {
-                        UISingleton.instance.GetComponentInChildren<UITips>().writeTip(skill.tip);
-                    }
                     player.GetComponent<Ability_Shock>().enabled = skill.taken;
                     break;
                 default:
@@ -437,10 +420,12 @@ public class StageLink : SingletonManager<StageLink>
             }
         }
     }
-    public void takeAndDeactivateObject(string name) {
+    public void takeAndDeactivateObject(string name, bool tip) {
         foreach (StageObject obj in stageObjects) {
             if (obj.name == name)
             {
+                if(tip)
+                    UISingleton.instance.GetComponentInChildren<UITips>().writeTip(obj.tip);
                 obj.taken = true;
                 obj.activated = false;
                 
@@ -451,12 +436,11 @@ public class StageLink : SingletonManager<StageLink>
     }
 
     public void die() {
-        if (gameData.diamond.taken)
-        {
+        if(gameData.diamond.taken)
             nextCharacter();
-        }
         lastSceneHealth = 3;
         lastMove = StageMove.NONE;
+        roomMove = false;
         StagePosition pos = gameData.spawns[currentCharacter];
         loadScene(stageFloors[pos.y].stageNames[pos.x]);
     }
@@ -469,10 +453,9 @@ public class StageLink : SingletonManager<StageLink>
 
         GameObject player = Instantiate(playerPrefab);
         player.transform.position = spawnPoints[(int)lastMove];
-        gameData.skills[currentCharacter].activated = false;
-        gameData.skills[currentCharacter].taken = true;
+        takeAndDeactivateObject(gameData.skills[currentCharacter].name, !roomMove);
         updatePlayerSkills(player);
-        player.GetComponent<PlayerHealth>().currentHealth = lastSceneHealth;
+        player.GetComponent<PlayerHealth>().currentHealth = lastSceneHealth + (gameData.skills[4].taken ? 1 : 0);
 
 
     }

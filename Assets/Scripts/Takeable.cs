@@ -16,7 +16,7 @@ public class Takeable : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player")) {
-            StageLink.instance.takeAndDeactivateObject(stageObjectName);
+            StageLink.instance.takeAndDeactivateObject(stageObjectName, true);
             Destroy(gameObject);
         }
     }

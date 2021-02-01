@@ -8,8 +8,16 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int powerMaxHealth;
     [SerializeField] int startMaxHealth;
     [SerializeField] int  currentMaxHealth;
-    [SerializeField] public int currentHealth;
+    [SerializeField] private int _currentHealth;
 
+    public int currentHealth {
+        get => _currentHealth;
+        set {
+            _currentHealth = value;
+            if (_currentHealth > currentMaxHealth)
+                _currentHealth = currentMaxHealth;
+        }
+    }
     [SerializeField] public float invincibilityTime;
     float time;
     public bool playerIsInvincible;
@@ -18,6 +26,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
+        foreach (StageLink.StageObject st in StageLink.instance.gameData.skills)
+        {
+            if (st.name == "moreHealth")
+                moreHealthAbility = st.taken;
+        }
         if(moreHealthAbility)
         {
             currentMaxHealth = powerMaxHealth;
@@ -32,10 +45,12 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void HealthPowerUp() {
-        int inc = powerMaxHealth - currentMaxHealth;
-        currentHealth += inc;
-        currentMaxHealth = powerMaxHealth;
-        moreHealthAbility = true;
+        if (!moreHealthAbility)
+        {
+           currentMaxHealth = powerMaxHealth;
+            currentHealth = currentMaxHealth;
+            moreHealthAbility = true;
+        }
     }
 
     private void Update()
