@@ -42,7 +42,7 @@ MonoBehaviour:
     toInstantiate: {fileID: 146175646752792992, guid: 338b2172468cec243adc4e2eec11dd99,
       type: 3}
     activated: 0
-    taken: 1
+    taken: 0
   - pos:
       x: 0
       y: 1
