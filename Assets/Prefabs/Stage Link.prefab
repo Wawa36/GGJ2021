@@ -50,11 +50,11 @@ MonoBehaviour:
     - Scene-Floor1-Zone3
   - stageNames:
     - Scene-Floor2-Zone1
-    - Scene-Floor2-Zone2
+    - Scene-Floor2-Zone5
     - Scene-Floor2-Zone3
   - stageNames:
     - Scene-Floor3-Zone1
-    - Scene-Floor3-Zone2
+    - Scene-Floor3-Zone5
     - Scene-Floor3-Zone3
   maxSkillsOnFloor: 020000000200000001000000
   baseGameData: {fileID: 11400000, guid: f7b7f04487d787a43b549ac88b839f70, type: 2}

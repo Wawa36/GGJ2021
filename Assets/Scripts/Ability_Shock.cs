@@ -13,6 +13,9 @@ public class Ability_Shock : MonoBehaviour
     [SerializeField]
     private float chargeTime;
 
+    [SerializeField]
+    private float minChargeTime;
+
     private float time;
 
     private bool recovered = true;
@@ -20,6 +23,11 @@ public class Ability_Shock : MonoBehaviour
 
     [SerializeField]
     private GameObject shockPrefab;
+
+    [SerializeField]
+    private GameObject shockChargePrefab;
+
+    private GameObject shockChargeObj;
 
     [SerializeField]
     private float shockHeight = 0.1f;
@@ -33,7 +41,10 @@ public class Ability_Shock : MonoBehaviour
         }
         else if (!Input.GetButton("Shock") && shockCharge)
         {
-            ShockChargeCancel();
+            if (time < minChargeTime)
+                ShockChargeCancel();
+            else
+                Shock();
         }
         if (shockCharge || !recovered) {
             time += Time.deltaTime;
@@ -50,17 +61,25 @@ public class Ability_Shock : MonoBehaviour
     void ShockCharge() {
         shockCharge = true;
         time = 0;
+        shockChargeObj = Instantiate(shockChargePrefab, GameObject.FindGameObjectWithTag("Player").transform);
+        shockChargeObj.transform.position = new Vector3(shockChargeObj.transform.position.x, 
+            shockChargePrefab.transform.position.y, shockChargeObj.transform.position.z);
     }
 
     void ShockChargeCancel() {
         shockCharge = false;
+        Destroy(shockChargeObj);
     }
 
     void Shock() {
         shockCharge = false;
-        time = 0;
+        Destroy(shockChargeObj);
+        
 
         GameObject shock = Instantiate(shockPrefab);
+        float t = Mathf.Min(chargeTime, time) / chargeTime;
+        shock.transform.localScale = new Vector3(shock.transform.localScale.x * t, 1, shock.transform.localScale.z * t);
         shock.transform.position = new Vector3(transform.position.x, shockHeight, transform.position.z);
+        time = 0;
     }
 }

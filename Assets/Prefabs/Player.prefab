@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 5223445510592642991}
   - component: {fileID: 6507323577148036142}
   - component: {fileID: 8696315061440248851}
+  - component: {fileID: 5922733167521138157}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -279,10 +280,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preparationTime: 0
-  recoverTime: 0.3
-  chargeTime: 0.5
+  recoverTime: 0.6
+  chargeTime: 1
+  minChargeTime: 0.2
   shockCharge: 0
   shockPrefab: {fileID: 3241576819756748194, guid: 0d77310de2c140c4691225c2d030872c,
+    type: 3}
+  shockChargePrefab: {fileID: 7200735464826611851, guid: a07983fdced6084499a64c6328971bc3,
     type: 3}
   shockHeight: 0.1
 --- !u!114 &3780395997450053398
@@ -315,10 +319,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   protectionTime: 0.5
-  recoverTime: 3
+  recoverTime: 2.5
   protect: 0
   shockHeight: 0.1
-  protection: {fileID: 471282021308784137}
+  protectionPrefab: {fileID: 3481156147739513545, guid: b1f2c6d5a7a4144438f3187e8adb8e5c,
+    type: 3}
+  protection: {fileID: 3481156147739513545, guid: b1f2c6d5a7a4144438f3187e8adb8e5c,
+    type: 3}
 --- !u!114 &6052938719833738032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +371,7 @@ MonoBehaviour:
   currentMaxHealth: 0
   currentHealth: 0
   invincibilityTime: 1
+  playerIsInvincible: 0
 --- !u!54 &6507323577148036142
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -394,6 +402,25 @@ CapsuleCollider:
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &5922733167521138157
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6507323577148036140}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e31b63e143d04614fada256b59a627b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6507323577344290085
 GameObject:
   m_ObjectHideFlags: 0

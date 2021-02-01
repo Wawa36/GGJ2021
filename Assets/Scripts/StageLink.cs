@@ -279,11 +279,12 @@ public class StageLink : SingletonManager<StageLink>
         gameData.diamond.taken = false;
         gameData.diamond.activated = true;
 
-        gameData.skills[currentCharacter].activated = false;
-        gameData.skills[currentCharacter].taken = true;
+        
 
-        if(precCharacter >= 0)
+        if (precCharacter >= 0)
+        {
             reorganizeSkills(gameData.skills[precCharacter]);
+        }
         
         return gameData.skills[currentCharacter];
     }
@@ -450,7 +451,8 @@ public class StageLink : SingletonManager<StageLink>
     }
 
     public void die() {
-        if (gameData.diamond.taken) {
+        if (gameData.diamond.taken)
+        {
             nextCharacter();
         }
         lastSceneHealth = 3;
@@ -467,6 +469,8 @@ public class StageLink : SingletonManager<StageLink>
 
         GameObject player = Instantiate(playerPrefab);
         player.transform.position = spawnPoints[(int)lastMove];
+        gameData.skills[currentCharacter].activated = false;
+        gameData.skills[currentCharacter].taken = true;
         updatePlayerSkills(player);
         player.GetComponent<PlayerHealth>().currentHealth = lastSceneHealth;
 

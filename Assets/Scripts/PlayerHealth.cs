@@ -10,9 +10,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int  currentMaxHealth;
     [SerializeField] public int currentHealth;
 
-    [SerializeField] float invincibilityTime;
+    [SerializeField] public float invincibilityTime;
     float time;
-    bool playerIsInvincible;
+    public bool playerIsInvincible;
 
     bool died = false;
 
@@ -80,12 +80,13 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!playerIsInvincible) {
                 Ability_Protection aProtection = GetComponent<Ability_Protection>();
-                if (aProtection.protect)
+                if (aProtection.canProtect())
                 {
-                    aProtection.EndProtection();
+                    aProtection.Hit();
                 }
                 else {
                     currentHealth--;
+                    GetComponent<Animator>().SetTrigger("hit");
                 }
                 time = 0;
                 playerIsInvincible = true;

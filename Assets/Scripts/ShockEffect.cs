@@ -13,6 +13,6 @@ public class ShockEffect : MonoBehaviour
         }
     }
     public void EndEffect() {
-        Destroy(gameObject);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }

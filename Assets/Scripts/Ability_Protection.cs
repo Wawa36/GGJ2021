@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ability_Protection: MonoBehaviour
+public class Ability_Protection : MonoBehaviour
 {
     [SerializeField]
     private float protectionTime;
@@ -14,10 +14,14 @@ public class Ability_Protection: MonoBehaviour
 
     private bool recovered = true;
     public bool protect = false;
+    private bool hit = false;
 
     [SerializeField]
     private float shockHeight = 0.1f;
 
+
+    [SerializeField]
+    private GameObject protectionPrefab;
 
     [SerializeField]
     private GameObject protection;
@@ -25,7 +29,8 @@ public class Ability_Protection: MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Protect") && recovered)
+        if (Input.GetButtonDown("Protect") && recovered
+            && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().playerIsInvincible)
         {
             BeginProtection();
         }
@@ -33,7 +38,7 @@ public class Ability_Protection: MonoBehaviour
         {
             time += Time.deltaTime;
         }
-        if (time > protectionTime)
+        if (protect && time > protectionTime)
         {
             EndProtection();
         }
@@ -48,14 +53,33 @@ public class Ability_Protection: MonoBehaviour
     {
         protect = true;
         recovered = false;
-        protection.SetActive(true);
+        protection = Instantiate(protectionPrefab, transform);
+        protection.GetComponent<Animator>().speed = 1f / protectionTime;
         time = 0;
     }
 
     public void EndProtection()
     {
+        time = 0;
         protect = false;
-        protection.SetActive(false);
+        protection.GetComponent<Animator>().speed = 1f / recoverTime;
+        hit = false;
+    }
+
+    public void Hit() {
+        protection.GetComponent<Animator>().SetTrigger("hit");
+        float invTime = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().invincibilityTime;
+        protection.GetComponent<Animator>().speed = 1f / invTime;
+
+        Invoke("EndProtection", invTime);
+        hit = true;
+    }
+
+    public void endInvincibility() {
+    }
+
+    public bool canProtect() {
+        return protect && !hit;
     }
 
 }
